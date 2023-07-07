@@ -191,6 +191,7 @@ async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
     else:
         edit = await client.edit_message_text(sender, edit_id, "Cloning.")
         chat =  msg_link.split("/")[-2]
+        msg = await userbot.get_messages(chat, msg_id)
         try:
             if msg.empty:
                 group = await userbot.get_users(chat)
